@@ -1,0 +1,435 @@
+@use "foundation";
+@use "global" as *;
+@use "module";
+
+/*=========================================
+#z-index
+=========================================*/
+$service-item-number-z: 10;
+$mv-copy-z: 10;
+$mv-before-z: 1;
+$service-item-img-z: 1;
+$particles-z: 1;
+
+/*=========================================
+#mv
+=========================================*/
+.mv {
+    height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.mv::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/common/fv.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    display: block;
+    opacity: 0.1;
+    z-index: $mv-before-z;
+    position: absolute;
+}
+
+.mv-copy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: #{vw(150)};
+    width: 100%;
+    font-family: $third-font;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    z-index: $mv-copy-z;
+}
+
+.dragging-text span {
+    display: inline-block;
+}
+
+/*=========================================
+#about
+=========================================*/
+.about {
+    background-color: $bg-bk;
+    padding-top: #{vw(120)};
+    padding-bottom: #{vw(140)};
+
+    @include mq("md") {
+        padding-top: 100px;
+        padding-bottom: #{sp(100)};
+    }
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+
+    @include mq("md") {
+        flex-direction: column;
+    }
+}
+
+.about-body {
+    margin-top: #{vw(150)};
+    width: #{vw(640)};
+
+    @include mq("md") {
+        width: 100%;
+    }
+}
+
+.about-heading {
+    color: $txt-we;
+    font-size: #{vw(32)};
+    font-family: 'IBM Plex Sans JP', sans-serif;
+
+    @include mq("md") {
+        font-size: #{sp(20)};
+    }
+}
+
+.about-text-wrapper {
+    margin-top: #{vw(55)};
+
+    @include mq("md") {
+        margin-top: #{sp(30)};
+    }
+}
+
+
+.about-text {
+    color: $txt-we;
+    line-height: 3.427;
+    font-size: #{vw(20)};
+
+    @include mq("md") {
+        font-size: #{sp(16)};
+    }
+}
+
+/*=========================================
+#works
+=========================================*/
+.works {
+    padding-top: #{vw(120)};
+    padding-bottom: #{vw(300)};
+
+    @include mq("md") {
+        padding-top: #{sp(100)};
+        padding-bottom: #{sp(200)};
+    }
+
+}
+
+.inner.works-inner {
+    padding: 0;
+    max-width: 100%;
+}
+
+.works-title-wrapper {
+    padding-left: #{vw(40)};
+    max-width: 2400px;
+    margin: 0 auto;
+
+    @include mq("md") {
+        padding-left: #{sp(20)};
+    }
+}
+
+//splideデフォルトの打ち消しのため
+ul.works-list {
+    margin-top: #{vw(200)} !important;
+
+    @include mq("md") {
+        margin-top: #{sp(100)} !important;
+    }
+}
+
+.works-item {
+    max-height: 800px;
+    position: relative;
+}
+
+.works-item__title {
+    position: absolute;
+    bottom: #{vw(20)};
+    background-color: $txt-we;
+    padding: #{vw(10)};
+    font-size: #{vw(20)};
+    font-weight: bold;
+
+    @include mq("md") {
+        font-size: #{sp(14)};
+        padding: #{sp(10)} #{sp(20)};
+    }
+}
+
+.works .splide__arrow {
+    bottom: #{vw(-150)};
+    top: auto;
+    background: none;
+
+    @include mq("md") {
+        bottom: #{sp(-100)};
+    }
+}
+
+.works .splide__arrow--next {
+    right: #{vw(300)};
+
+    @include mq("md") {
+        right: #{sp(20)};
+    }
+}
+
+.works .splide__arrow--prev {
+    left: #{vw(300)};
+
+    @include mq("md") {
+        left: #{sp(20)};
+    }
+}
+
+.works .splide__arrow svg {
+    width: #{vw(40)};
+    height: #{vw(40)};
+
+    @include mq("md") {
+        width: #{sp(40)};
+        height: #{sp(40)};
+    }
+}
+
+.works-btn {
+    position: relative;
+    margin: #{vw(120)} auto 0;
+    width: fit-content;
+    display: block;
+    font-size: #{vw(30)};
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: $third-font;
+
+    @include mq("md") {
+        font-size: #{sp(20)};
+        margin-top: #{sp(50)};
+    }
+}
+
+.works-btn::before {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    transform-origin: left;
+    left: 0;
+    background-color: $bg-bk;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.works-btn:hover::before {
+    transform: scaleX(1);
+}
+
+/*=========================================
+#service
+=========================================*/
+.service {
+    background-color: $bg-bk;
+    padding-top: #{vw(120)};
+    padding-bottom: #{vw(300)};
+
+    @include mq("md") {
+        padding-top: 100px;
+        padding-bottom: #{sp(200)};
+    }
+}
+
+.inner.service-inner {
+    display: flex;
+    justify-content: space-between;
+
+    @include mq("md") {
+        flex-direction: column;
+    }
+}
+
+.service-title-wrapper {
+    height: inherit;
+}
+
+.section-title.service-title {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-top: #{vw(120)};
+
+    @include mq("md") {
+        position: relative;
+        padding-top: 0;
+    }
+}
+
+.service-list {
+    width: #{vw(720)};
+    margin-top: #{vw(200)};
+
+    @include mq("md") {
+        margin-top: #{sp(100)};
+        width: 100%;
+    }
+}
+
+.service-item {
+    width: #{vw(640)};
+    margin: 0 auto;
+
+    @include mq("md") {
+        width: 100%;
+    }
+}
+
+.service-item:not(:first-child) {
+    margin-top: #{vw(900)};
+
+    @include mq("md") {
+        margin-top: #{sp(200)};
+    }
+}
+
+.service-item__img {
+    position: relative;
+    height: #{vw(395)};
+    @include mq("md") {
+        height: #{sp(250)};
+    }
+}
+
+.service-item__img img {
+    filter: grayscale(100);
+    z-index: $service-item-img-z;
+}
+
+.service-item__number {
+    position: absolute;
+    top: -25%;
+    right: 0;
+    font-size: #{vw(128)};
+    line-height: 1;
+    color: $primary-color;
+    z-index: $service-item-number-z;
+
+    @include mq("md") {
+        font-size: #{sp(60)};
+        top: -15%;
+    }
+}
+
+.service-item__tag {
+    position: absolute;
+    bottom: #{vw(20)};
+    background-color: $bg-bk;
+    color: $txt-we;
+    padding: #{vw(10)};
+    font-size: #{vw(24)};
+
+    @include mq("md") {
+        font-size: #{sp(16)};
+        padding: #{sp(10)};
+        bottom: #{sp(10)};
+    }
+}
+
+.service-item__text {
+    color: $txt-we;
+    margin: #{vw(70)} auto 0;
+    font-size: #{vw(24)};
+    width: #{vw(541)};
+    line-height: 3.427;
+
+    @include mq("md") {
+        width: 100%;
+        font-size: #{sp(16)};
+        line-height: 2;
+        margin-top: #{sp(50)};
+    }
+}
+
+/*=========================================
+#幾何学
+=========================================*/
+#particles-js {
+    position: absolute;
+    z-index: $particles-z;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+#wrapper {
+    position: relative;
+    z-index: $particles-z;
+    width: 100%;
+    height: 100%;
+}
+
+/*=========================================
+#共通
+=========================================*/
+body.no-scroll {
+    overflow: hidden;
+}
+
+.inner {
+    padding: 0 #{vw(40)};
+    max-width: 2400px;
+    margin: 0 auto;
+
+    @include mq("md") {
+        padding: 0 #{sp(20)};
+    }
+}
+
+.section-title {
+    position: relative;
+}
+
+.section-title__text {
+    color: $primary-color;
+    font-size: #{vw(128)};
+    font-family: $third-font;
+    font-style: italic;
+
+    @include mq("md") {
+        font-size: #{sp(60)};
+    }
+}
+
+.section-title__arrow {
+    width: #{vw(144.5)};
+    object-fit: contain;
+}
+
+.sp-none {
+    @include mq("md") {
+        display: none;
+    }
+}
+
+.sp-show {
+    display: none;
+
+    @include mq("md") {
+        display: block;
+    }
+}

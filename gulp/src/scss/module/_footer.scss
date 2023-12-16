@@ -1,0 +1,141 @@
+@use "global" as *;
+
+.footer {
+    padding-top: #{vw(300)};
+    padding-bottom: #{vw(100)};
+    @include mq("md") {
+        padding-top: #{sp(100)};
+        padding-bottom: #{sp(100)};
+    }
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    @include mq("md") {
+        flex-direction: column;
+        align-items: start;
+        row-gap: #{sp(50)};
+    }
+}
+
+.footer-site-name {
+    font-size: #{vw(200)};
+    color: #E5E5E5;
+    line-height: 1;
+    font-family: $third-font;
+    @include mq("md") {
+        font-size: #{sp(50)};
+    }
+}
+
+.footer-nav {
+    height: 100%;
+}
+
+.footer-nav__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: #{vw(40)};
+    @include mq("md") {
+        row-gap: #{sp(40)};
+    }
+}
+
+.footer-nav__link {
+    font-size: #{vw(24)};
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    column-gap: #{vw(20)};
+    @include mq("md") {
+        font-size: #{sp(18)};
+    }
+}
+
+.footer-nav__link img {
+    width: #{vw(10)};
+    object-fit: contain;
+}
+
+/*=========================================
+#contact
+=========================================*/
+.footer-contact {
+    margin-top: #{vw(200)};
+    @include mq("md") {
+        margin-top: #{sp(100)};
+    }
+}
+
+.wpcf7 {
+    margin-top: #{vw(200)};
+    @include mq("md") {
+        margin-top: #{sp(100)};
+    }
+}
+
+.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: #{vw(80)};
+}
+
+textarea,
+input:not([type="submit"]) {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $txt-bk;
+    padding: #{vw(20)};
+    border-radius: 0px;
+    @include mq("md") {
+        padding: #{sp(10)};
+    }
+}
+textarea{
+    resize: none;
+}
+label {
+    font-size: #{vw(24)};
+    @include mq("md") {
+        font-size: #{sp(20)};
+    }
+}
+
+input[type=submit] {
+    width: #{vw(522)};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: transparent;
+    border: none;
+    font-size: #{vw(24)};
+    padding: #{vw(20)};
+    border-radius: #{vw(40)};
+    color: $txt-bk;
+    transition: color .3s, background-color .3s, border .3s;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+    @include mq("md") {
+        font-size: #{sp(20)};
+        padding: #{sp(5) #{sp(100)}};
+        border-radius: #{sp(30)};
+        margin-top: #{sp(20)};
+    }
+}
+
+.footer-copy{
+    font-size: #{vw(20)};
+    margin-top: #{vw(100)};
+    display: inline-block;
+        @include mq("md") {
+        font-size: #{sp(14)};
+    }
+}
+.required{
+    color: red;
+}

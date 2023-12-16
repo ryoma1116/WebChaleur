@@ -1,0 +1,40 @@
+@use "sass:math";
+
+// vw関数
+@function vw($size, $window_width: 1440) {
+  // math.div関数を使用して割り算を行う
+  $result: math.div($size, $window_width) * 100vw;
+  // CSSのmin関数を文字列として出力
+  @return "min(#{$result}, #{$size}px)";
+}
+
+// sp関数
+@function sp($size, $window_width: 430) {
+  // math.div関数を使用して割り算を行う
+  $result: math.div($size, $window_width) * 100vw;
+  // 文字列として出力
+  @return $result;
+}
+
+// ブレイクポイントの値
+$breakpoints: (
+  sp: 375,
+  md: 768,
+  lg: 1024,
+  xl: 1440,
+);
+
+// メディアクエリー
+$mediaqueries: (
+  sp: "screen and (max-width: #{map-get($breakpoints, 'sp')}px)",
+  md: "screen and (max-width: #{map-get($breakpoints, 'md')}px)",
+  lg: "screen and (max-width: #{map-get($breakpoints, 'lg')}px)",
+  xl: "screen and (max-width: #{map-get($breakpoints, 'xl')}px)",
+);
+
+// ブレイクポイントの設定
+@mixin mq($mediaquery: md) {
+  @media #{map-get($mediaqueries, $mediaquery)} {
+    @content;
+  }
+}

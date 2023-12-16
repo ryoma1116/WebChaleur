@@ -1,0 +1,127 @@
+@use "global" as *;
+
+/*=========================================
+#fv
+=========================================*/
+
+.page-fv__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-top: #{vw(300)};
+    padding-bottom: #{vw(200)};
+    font-size: #{vw(128)};
+    color: #E5E5E5;
+
+    @include mq("md") {
+        font-size: #{sp(45)};
+        padding-top: #{sp(150)};
+        padding-bottom: #{sp(100)};
+    }
+}
+
+/*=========================================
+#page-works
+=========================================*/
+.page-works {
+    padding-bottom: #{vw(300)};
+
+    @include mq("md") {
+        padding-bottom: #{sp(150)};
+    }
+}
+
+.page-works-item {
+    display: flex;
+    justify-content: center;
+    padding: #{vw(100)} 0;
+    border-bottom: 1px solid #000;
+    column-gap: #{vw(40)};
+
+    @include mq("md") {
+        padding: #{sp(50)} 0;
+        flex-direction: column;
+        row-gap: #{sp(30)};
+    }
+}
+
+.page-works-item:first-child {
+    border-top: 1px solid #000;
+}
+
+.page-works-item__img {
+    width: #{vw(681)};
+    height: #{vw(398)};
+
+    @include mq("md") {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.page-works-item__body {
+    width: #{vw(639)};
+
+    @include mq("md") {
+        width: 100%;
+    }
+}
+
+.page-works-item__title {
+    font-size: #{vw(32)};
+
+    @include mq("md") {
+        font-size: #{sp(20)};
+    }
+}
+
+.page-works-item__link {
+    margin-top: #{vw(10)};
+    display: inline-block;
+    font-size: #{vw(14)};
+
+    @include mq("md") {
+        font-size: #{sp(10)};
+        margin-top: #{sp(5)};
+    }
+}
+
+.page-works-item__text {
+    margin-top: #{vw(30)};
+    font-size: #{vw(20)};
+    line-height: 2;
+
+    @include mq("md") {
+        font-size: #{sp(12)};
+    }
+}
+
+/*=========================================
+#404
+=========================================*/
+.page-404 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: #{vw(20)};
+}
+
+.page-404__text {
+    font-size: #{vw(40)};
+
+    @include mq("md") {
+        font-size: #{sp(20)};
+    }
+}
+
+.btn-back {
+    text-decoration: underline;
+    font-size: #{vw(20)};
+
+    @include mq("md") {
+        font-size: #{sp(12)};
+    }
+}
